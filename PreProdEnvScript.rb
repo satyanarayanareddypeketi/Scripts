@@ -1,12 +1,10 @@
 require 'fileutils'
 require 'yaml'
 yml_file = YAML.load_file('config.yml')
-folder  = "/home/ec2-user/.jenkins/jobs/PrePodEnv/workspace/"
 count=0
-Dir.chdir folder
-result=File.exist?("TEST-com.netenrich.PrePodEnvTestCases.txt")
+result=File.exist?("TEST-PrePodEnvTestCases.txt")
 if result==true
-        file_handler = File.open("TEST-com.netenrich.PrePodEnvTestCases.txt")
+        file_handler = File.open("TEST-PrePodEnvTestCases.txt")
         for line in file_handler do
                 count=count+1
                 if count==2
@@ -20,7 +18,7 @@ else
 end
 puts total_tests
 puts failed_tests
-FileUtils.rm_rf("TEST-com.netenrich.PrePodEnvTestCases.txt")
+FileUtils.rm_rf("TEST-PrePodEnvTestCases.txt")
 if failed_tests == 0
         puts "Code will Deploy to Prod Environment"
 else
