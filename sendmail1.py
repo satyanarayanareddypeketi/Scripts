@@ -12,6 +12,7 @@ import yaml
 with open('config.yml','r') as f:
     doc=yaml.load(f)
 test_p=doc['TestEnv']['percentage']
+preprod_p=doc['PreProdEnv']['percentage']
 prod_p=doc['ProdEnv']['percentage']
 msg = MIMEMultipart('alternative')
 
