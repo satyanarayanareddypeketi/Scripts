@@ -2,12 +2,10 @@
 require 'fileutils'
 require 'yaml'
 yml_file = YAML.load_file('config.yml')
-folder  = "/home/ec2-user/.jenkins/jobs/TestEnv/Workspace/"
 count=0
-Dir.chdir folder
-result=File.exist?("TEST-com.netenrich.TestEnvTestCases.txt")
+result=File.exist?("TEST-TestEnvTestCases.txt")
 if result==true
-        file_handler = File.open("TEST-com.netenrich.TestEnvTestCases.txt")
+        file_handler = File.open("TEST-TestEnvTestCases.txt")
         for line in file_handler do
                 count=count+1
                 if count==2
@@ -21,7 +19,7 @@ else
 end
 puts total_tests
 puts failed_tests
-FileUtils.rm_rf("TEST-com.netenrich.TestEnvTestCases.txt")
+FileUtils.rm_rf("TEST-TestEnvTestCases.txt")
 if failed_tests == 0
         puts "Code will Deploy to Prod Environment"
 else
