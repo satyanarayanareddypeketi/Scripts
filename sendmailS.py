@@ -2,7 +2,7 @@ import requests
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-project_name="JenkinsServer"
+project_name="TestEnv"
 r=requests.get("http://52.49.55.109:8080/jenkins/job/"+project_name+"/api/json")
 total_info=r.json()
 count=0
